@@ -1,0 +1,46 @@
+job_config:
+  class: SlurmSequentialJob
+  jobname: itensor_benchmark
+  task:
+    type: CommandCall
+    command: julia
+    command_line_args:
+    - --
+    - julia_file: ${{PROJECT_DIR}}/itensor/{0!s}
+    - --blas_num_threads
+    - blas_num_threads: '{0:d}'
+    - --conserve_qns
+    - conserve: '{0:d}'
+    - --output_filename
+    - output_filename: null
+    shell: true
+  requirements_slurm:
+    time: 0-12:00:00
+    mem: 30G
+    partition: cpu
+    nodes: 1
+    cpus-per-task: 8
+    mail-type: FAIL
+    nodelist: anderson[01-24]
+  change_parameters:
+    expansion: product
+    recursive_keys:
+    - blas_num_threads
+    - conserve
+    format_strs:
+    - nthreads_{0:02d}
+    - conserve_{0!r}
+    output_filename:
+      prefix: timings
+      suffix: .out
+      separator: .
+      parts:
+        blas_num_threads: nthreads_{0:02d}
+        conserve: conserve_{0!r}
+julia_file: run_tenpy_comparison.jl
+blas_num_threads:
+- 4
+- 1
+conserve:
+- true
+- false

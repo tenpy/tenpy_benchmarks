@@ -1,0 +1,105 @@
+Running task 1 2 3 4 specified in itensor_benchmark_00.config.yml on anderson17 at Wed 24 Jul 14:43:11 CEST 2024
+LBTConfig([ILP64] libmkl_rt.so, [LP64] libmkl_rt.so)
+args = Dict{String, Any}("blas_num_threads" => 4, "max_seconds" => 1000.0, "conserve_qns" => true, "output_filename" => "timings_nthreads_04_conserve_True.out")
+Using 4 BLAS threads
+conserve_qns = true
+use_sparse_mpo = true
+Splitting blocks of H (= making MPO sparse)
+After sweep 1 energy=-138.32393649712623  maxlinkdim=9 maxerr=0.00E+00 time=35.021
+After sweep 2 energy=-138.91372767714608  maxlinkdim=10 maxerr=6.00E-05 time=2.132
+After sweep 3 energy=-138.94003020648285  maxlinkdim=32 maxerr=1.00E-07 time=1.794
+After sweep 4 energy=-138.94004265642977  maxlinkdim=32 maxerr=1.29E-07 time=1.653
+After sweep 5 energy=-138.94008554550976  maxlinkdim=64 maxerr=1.46E-09 time=2.378
+After sweep 6 energy=-138.94008557549833  maxlinkdim=64 maxerr=1.28E-09 time=2.342
+After sweep 7 energy=-138.94008614041505  maxlinkdim=128 maxerr=6.89E-12 time=3.780
+After sweep 8 energy=-138.94008614065223  maxlinkdim=128 maxerr=6.08E-12 time=4.973
+After sweep 9 energy=-138.94008614352236  maxlinkdim=256 maxerr=1.33E-14 time=9.146
+After sweep 10 energy=-138.9400861435234  maxlinkdim=256 maxerr=1.21E-14 time=10.759
+After sweep 11 energy=-138.9400861435297  maxlinkdim=384 maxerr=3.70E-16 time=18.813
+After sweep 12 energy=-138.9400861435297  maxlinkdim=384 maxerr=3.49E-16 time=22.883
+After sweep 13 energy=-138.94008614353106  maxlinkdim=512 maxerr=2.18E-17 time=35.018
+After sweep 14 energy=-138.9400861435307  maxlinkdim=512 maxerr=3.18E-17 time=36.879
+After sweep 15 energy=-138.94008614353032  maxlinkdim=768 maxerr=1.81E-18 time=60.564
+After sweep 16 energy=-138.94008614352975  maxlinkdim=768 maxerr=1.02E-17 time=72.655
+After sweep 17 energy=-138.94008614353078  maxlinkdim=1024 maxerr=4.62E-19 time=126.516
+After sweep 18 energy=-138.94008614353007  maxlinkdim=1024 maxerr=2.28E-19 time=142.689
+After sweep 19 energy=-138.94008614353075  maxlinkdim=1536 maxerr=5.72E-22 time=365.013
+After sweep 20 energy=-138.9400861435309  maxlinkdim=1536 maxerr=3.73E-22 time=539.625
+stopping dmrg after sweep 20 due to taking 1518.3505239486694 seconds
+total time 1518.350801341
+LBTConfig([ILP64] libmkl_rt.so, [LP64] libmkl_rt.so)
+args = Dict{String, Any}("blas_num_threads" => 4, "max_seconds" => 1000.0, "conserve_qns" => false, "output_filename" => "timings_nthreads_04_conserve_False.out")
+Using 4 BLAS threads
+conserve_qns = false
+use_sparse_mpo = false
+Using dense MPO
+After sweep 1 energy=-138.32393649712782  maxlinkdim=9 maxerr=0.00E+00 time=19.383
+After sweep 2 energy=-138.91372608737478  maxlinkdim=10 maxerr=5.99E-05 time=0.206
+After sweep 3 energy=-138.94002900536992  maxlinkdim=32 maxerr=1.01E-07 time=0.532
+After sweep 4 energy=-138.940042873918  maxlinkdim=32 maxerr=1.29E-07 time=0.854
+After sweep 5 energy=-138.94008554606674  maxlinkdim=64 maxerr=1.46E-09 time=1.627
+After sweep 6 energy=-138.94008557550166  maxlinkdim=64 maxerr=1.28E-09 time=2.478
+After sweep 7 energy=-138.94008614041158  maxlinkdim=128 maxerr=6.89E-12 time=7.579
+After sweep 8 energy=-138.94008614064916  maxlinkdim=128 maxerr=6.08E-12 time=9.502
+After sweep 9 energy=-138.94008614351915  maxlinkdim=256 maxerr=1.33E-14 time=28.572
+After sweep 10 energy=-138.940086143521  maxlinkdim=256 maxerr=1.21E-14 time=34.875
+After sweep 11 energy=-138.94008614352822  maxlinkdim=384 maxerr=3.70E-16 time=91.215
+After sweep 12 energy=-138.94008614352944  maxlinkdim=384 maxerr=3.49E-16 time=117.360
+After sweep 13 energy=-138.9400861435283  maxlinkdim=512 maxerr=2.18E-17 time=220.047
+After sweep 14 energy=-138.94008614352828  maxlinkdim=512 maxerr=3.18E-17 time=259.087
+After sweep 15 energy=-138.9400861435244  maxlinkdim=768 maxerr=1.62E-18 time=942.267
+stopping dmrg after sweep 15 due to taking 1747.6855239868164 seconds
+total time 1747.685758259
+LBTConfig([ILP64] libmkl_rt.so, [LP64] libmkl_rt.so)
+args = Dict{String, Any}("blas_num_threads" => 1, "max_seconds" => 1000.0, "conserve_qns" => true, "output_filename" => "timings_nthreads_01_conserve_True.out")
+Using 1 BLAS threads
+conserve_qns = true
+use_sparse_mpo = true
+Splitting blocks of H (= making MPO sparse)
+After sweep 1 energy=-138.32393649712623  maxlinkdim=9 maxerr=0.00E+00 time=37.032
+After sweep 2 energy=-138.91372767714608  maxlinkdim=10 maxerr=6.00E-05 time=2.368
+After sweep 3 energy=-138.94003020648285  maxlinkdim=32 maxerr=1.00E-07 time=2.038
+After sweep 4 energy=-138.94004265642977  maxlinkdim=32 maxerr=1.29E-07 time=2.525
+After sweep 5 energy=-138.94008554550976  maxlinkdim=64 maxerr=1.46E-09 time=2.356
+After sweep 6 energy=-138.94008557549833  maxlinkdim=64 maxerr=1.28E-09 time=2.616
+After sweep 7 energy=-138.9400861404155  maxlinkdim=128 maxerr=6.89E-12 time=4.276
+After sweep 8 energy=-138.9400861406516  maxlinkdim=128 maxerr=6.08E-12 time=5.586
+After sweep 9 energy=-138.94008614352214  maxlinkdim=256 maxerr=1.33E-14 time=10.572
+After sweep 10 energy=-138.9400861435232  maxlinkdim=256 maxerr=1.21E-14 time=12.737
+After sweep 11 energy=-138.94008614352927  maxlinkdim=384 maxerr=3.70E-16 time=21.552
+After sweep 12 energy=-138.94008614353012  maxlinkdim=384 maxerr=3.49E-16 time=24.941
+After sweep 13 energy=-138.9400861435304  maxlinkdim=512 maxerr=2.18E-17 time=36.339
+After sweep 14 energy=-138.94008614353038  maxlinkdim=512 maxerr=3.18E-17 time=41.650
+After sweep 15 energy=-138.9400861435294  maxlinkdim=768 maxerr=1.81E-18 time=89.506
+After sweep 16 energy=-138.9400861435304  maxlinkdim=768 maxerr=1.02E-17 time=91.695
+After sweep 17 energy=-138.94008614353115  maxlinkdim=1024 maxerr=4.62E-19 time=178.150
+After sweep 18 energy=-138.94008614353066  maxlinkdim=1024 maxerr=2.28E-19 time=216.182
+After sweep 19 energy=-138.9400861435304  maxlinkdim=1536 maxerr=5.70E-22 time=619.023
+stopping dmrg after sweep 19 due to taking 1425.2565989494324 seconds
+total time 1425.256936515
+LBTConfig([ILP64] libmkl_rt.so, [LP64] libmkl_rt.so)
+args = Dict{String, Any}("blas_num_threads" => 1, "max_seconds" => 1000.0, "conserve_qns" => false, "output_filename" => "timings_nthreads_01_conserve_False.out")
+Using 1 BLAS threads
+conserve_qns = false
+use_sparse_mpo = false
+Using dense MPO
+After sweep 1 energy=-138.32393649712782  maxlinkdim=9 maxerr=0.00E+00 time=20.338
+After sweep 2 energy=-138.91372608737478  maxlinkdim=10 maxerr=5.99E-05 time=0.223
+After sweep 3 energy=-138.94002900536879  maxlinkdim=32 maxerr=1.01E-07 time=0.625
+After sweep 4 energy=-138.9400428739186  maxlinkdim=32 maxerr=1.29E-07 time=1.011
+After sweep 5 energy=-138.94008554606617  maxlinkdim=64 maxerr=1.46E-09 time=2.365
+After sweep 6 energy=-138.94008557550208  maxlinkdim=64 maxerr=1.28E-09 time=3.292
+After sweep 7 energy=-138.9400861404134  maxlinkdim=128 maxerr=6.89E-12 time=11.533
+After sweep 8 energy=-138.94008614064919  maxlinkdim=128 maxerr=6.08E-12 time=15.809
+After sweep 9 energy=-138.9400861435159  maxlinkdim=256 maxerr=1.33E-14 time=61.869
+After sweep 10 energy=-138.9400861435208  maxlinkdim=256 maxerr=1.21E-14 time=85.672
+After sweep 11 energy=-138.94008614352984  maxlinkdim=384 maxerr=3.70E-16 time=227.925
+After sweep 12 energy=-138.9400861435302  maxlinkdim=384 maxerr=3.49E-16 time=283.387
+After sweep 13 energy=-138.94008614352805  maxlinkdim=512 maxerr=2.18E-17 time=552.943
+stopping dmrg after sweep 13 due to taking 1279.8254380226135 seconds
+total time 1279.82566897
+calling: 'julia -- ${PROJECT_DIR}/itensor/run_tenpy_comparison.jl --blas_num_threads 4 --conserve_qns 1 --output_filename timings_nthreads_04_conserve_True.out'
+calling: 'julia -- ${PROJECT_DIR}/itensor/run_tenpy_comparison.jl --blas_num_threads 4 --conserve_qns 0 --output_filename timings_nthreads_04_conserve_False.out'
+calling: 'julia -- ${PROJECT_DIR}/itensor/run_tenpy_comparison.jl --blas_num_threads 1 --conserve_qns 1 --output_filename timings_nthreads_01_conserve_True.out'
+calling: 'julia -- ${PROJECT_DIR}/itensor/run_tenpy_comparison.jl --blas_num_threads 1 --conserve_qns 0 --output_filename timings_nthreads_01_conserve_False.out'
+finished at Wed 24 Jul 16:25:18 CEST 2024
