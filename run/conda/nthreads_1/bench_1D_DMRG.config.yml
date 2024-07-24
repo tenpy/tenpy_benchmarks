@@ -1,0 +1,91 @@
+job_config:
+  class: SlurmSequentialJob
+  jobname: bench_1D_DMRG
+  task:
+    type: PythonFunctionCall
+    module: tenpy
+    function: run_simulation
+  script_template: slurm.sh
+  requirements_slurm:
+    time: 0-2:00:00
+    mem: 30G
+    partition: cpu
+    qos: short
+    nodes: 1
+    cpus-per-task: 2
+    mail-type: FAIL
+    nodelist: anderson[01-24]
+  options:
+    environment_setup: 'eval "$(micromamba shell hook --shell bash )"
+
+      micromamba activate "${PROJECT_DIR}/env_conda"
+
+      # export TENPY_OPTIMIZE=3
+
+      '
+  change_parameters:
+    output_filename_params_key: output_filename_params
+    expansion: product
+    recursive_keys:
+    - model_params.conserve
+    - model_params.sort_mpo_legs
+simulation_class: GroundStateSearch
+output_filename_params:
+  prefix: bench
+  parts:
+    model_params.conserve: cons_{0!s}
+    model_params.sort_mpo_legs: sort_{0!s}
+  suffix: .h5
+save_every_x_seconds: 1800
+save_psi: false
+log_params:
+  to_stdout: WARNING
+  to_file: INFO
+model_class: SpinChain
+model_params:
+  bc_MPS: finite
+  L: 100
+  S: 1
+  Jx: 1.0
+  Jy: 1.0
+  Jz: 1.0
+  conserve:
+  - None
+  sort_mpo_legs:
+  - false
+initial_state_params:
+  method: lat_product_state
+  product_state:
+  - - up
+  - - down
+algorithm_class: TwoSiteDMRGEngine
+algorithm_params:
+  trunc_params:
+    svd_min: 1.0e-14
+  chi_list:
+    0: 10
+    4: 32
+    8: 64
+    12: 128
+    16: 256
+    18: 384
+    22: 512
+    24: 768
+    28: 1024
+    32: 2048
+  min_sweeps: 36
+  max_sweeps: 35
+  lanczos_params:
+    N_max: 3
+    N_min: 3
+    N_cache: 20
+    reortho: false
+  mixer: false
+  max_hours: 1.0
+measure_at_algorithm_checkpoints: true
+connect_measurements:
+- - tenpy.simulations.measurement
+  - m_onsite_expectation_value
+  - opname: Sz
+- - simulation_method
+  - wrap walltime

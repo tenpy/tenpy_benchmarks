@@ -1,0 +1,5 @@
+Running task 1 2 3 4
+specified in bench_1D_DMRG.config.yml on anderson07 at Wed 17 Jul 11:05:09 CEST 2024 with 1 threads
+in folder /home/t30/all/ga93non/postdoc/2024-05-TeNPy_v1_paper/benchmarks/run/conda/nthreads_1
+TENPY_OPTIMIZE=
+slurmstepd: error: *** JOB 3792171 ON anderson07 CANCELLED AT 2024-07-17T20:21:25 ***

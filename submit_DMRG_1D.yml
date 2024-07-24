@@ -3,7 +3,7 @@
 
 job_config:
     class: JobConfig # JobConfig = run locally; SlurmJob = submit to slurm; SGEJob = submit to SGE
-    jobname: bench_1D_DMRG
+    jobname: bench_DMRG_1D
     task:  # specify what your job actually does
         type: PythonFunctionCall
         module: tenpy

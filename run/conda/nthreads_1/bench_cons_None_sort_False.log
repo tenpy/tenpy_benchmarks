@@ -1,0 +1,280 @@
+INFO    : new simulation
+================================================================================
+GroundStateSearch
+================================================================================
+INFO    : output filename: bench_cons_None_sort_False.h5
+INFO    : use trivial cache (keeps everything in RAM)
+INFO    : GroundStateSearch: reading 'algorithm_params'={'trunc_params': {'svd_min': 1e-14}, 'chi_list': {0: 10, 4: 32, 8: 64, 12: 128, 16: 256, 18: 384, 22: 512, 24: 768, 28: 1024, 32: 2048}, 'min_sweeps': 36, 'max_sweeps': 35, 'lanczos_params': {'N_max': 3, 'N_min': 3, 'N_cache': 20, 'reortho': False}, 'mixer': False, 'max_hours': 1.0}
+INFO    : use trivial cache (keeps everything in RAM)
+INFO    : GroundStateSearch: reading 'model_class'='SpinChain'
+INFO    : GroundStateSearch: subconfig 'model_params'=Config(<8 options>, 'model_params')
+INFO    : model_params: reading 'bc_MPS'='finite'
+INFO    : model_params: reading 'S'=1
+INFO    : model_params: reading 'conserve'='None'
+INFO    : model_params: reading 'L'=100
+INFO    : model_params: reading 'Jx'=1.0
+INFO    : model_params: reading 'Jy'=1.0
+INFO    : model_params: reading 'Jz'=1.0
+INFO    : model_params: reading 'sort_mpo_legs'=False
+INFO    : GroundStateSearch: subconfig 'initial_state_params'=Config(<2 options>, 'initial_state_params')
+INFO    : initial_state_params: reading 'method'='lat_product_state'
+INFO    : calling InitialStateBuilder.lat_product_state()
+INFO    : initial_state_params: reading 'product_state'=[['up'], ['down']]
+INFO    : GroundStateSearch: reading 'save_psi'=False
+INFO    : GroundStateSearch: reading 'algorithm_class'='TwoSiteDMRGEngine'
+INFO    : algorithm_params: subconfig 'trunc_params'=Config(<1 options>, 'trunc_params')
+INFO    : algorithm_params: subconfig 'lanczos_params'=Config(<4 options>, 'lanczos_params')
+INFO    : algorithm_params: reading 'chi_list'={0: 10, 4: 32, 8: 64, 12: 128, 16: 256, 18: 384, 22: 512, 24: 768, 28: 1024, 32: 2048}
+INFO    : GroundStateSearch: reading 'connect_measurements'=[['tenpy.simulations.measurement', 'm_onsite_expectation_value', {'opname': 'Sz'}], ['simulation_method', 'wrap walltime']]
+INFO    : GroundStateSearch: reading 'measure_at_algorithm_checkpoints'=True
+INFO    : make measurements
+INFO    : algorithm_params: reading 'mixer'=False
+INFO    : algorithm_params: reading 'max_sweeps'=35
+INFO    : algorithm_params: reading 'max_hours'=1.0
+INFO    : Running sweep with optimization
+INFO    : Setting chi_max=10
+INFO    : trunc_params: setting 'chi_max'=10
+INFO    : trunc_params: reading 'chi_max'=10
+INFO    : trunc_params: reading 'svd_min'=1e-14
+INFO    : checkpoint after sweep 1
+energy=-138.5021976407473119, max S=0.6786309396940691, age=100, norm_err=5.7e-01
+Current memory usage 126.6MB, wall time: 2.3s
+Delta E = nan, Delta S = 6.1675e-01 (per sweep)
+max trunc_err = 0.0000e+00, max E_trunc = 3.4106e-13
+chi: 9
+================================================================================
+INFO    : make measurements
+INFO    : GroundStateSearch: reading 'save_every_x_seconds'=1800
+INFO    : Running sweep with optimization
+INFO    : lanczos_params: reading 'N_min'=3
+INFO    : lanczos_params: reading 'N_max'=3
+INFO    : lanczos_params: reading 'reortho'=False
+INFO    : lanczos_params: reading 'N_cache'=20
+INFO    : checkpoint after sweep 2
+energy=-138.9135741081965989, max S=0.8448326878735837, age=100, norm_err=4.3e-02
+Current memory usage 128.0MB, wall time: 2.2s
+Delta E = -4.1138e-01, Delta S = 2.2133e-01 (per sweep)
+max trunc_err = 5.9184e-05, max E_trunc = 2.8941e-04
+chi: 10
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 3
+energy=-138.9147608789501760, max S=0.8488374098716500, age=100, norm_err=1.6e-03
+Current memory usage 128.0MB, wall time: 2.1s
+Delta E = -1.1868e-03, Delta S = 3.1423e-03 (per sweep)
+max trunc_err = 5.6368e-05, max E_trunc = 3.1020e-04
+chi: 10
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 4
+energy=-138.9147722130071827, max S=0.8490434195921983, age=100, norm_err=1.3e-03
+Current memory usage 128.2MB, wall time: 2.1s
+Delta E = -1.1334e-05, Delta S = 1.0477e-04 (per sweep)
+max trunc_err = 5.6519e-05, max E_trunc = 3.1134e-04
+chi: 10
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : Setting chi_max=32
+INFO    : checkpoint after sweep 5
+energy=-138.9400314369873399, max S=0.8548363044148595, age=100, norm_err=3.8e-03
+Current memory usage 132.9MB, wall time: 2.5s
+Delta E = -2.5259e-02, Delta S = 9.3841e-03 (per sweep)
+max trunc_err = 1.0226e-07, max E_trunc = 4.0350e-07
+chi: 32
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 6
+energy=-138.9400427679223640, max S=0.8554082979669679, age=100, norm_err=5.8e-05
+Current memory usage 132.9MB, wall time: 2.9s
+Delta E = -1.1331e-05, Delta S = 8.6485e-04 (per sweep)
+max trunc_err = 1.2701e-07, max E_trunc = 6.8388e-07
+chi: 32
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 7
+energy=-138.9400428315161093, max S=0.8554143552599578, age=100, norm_err=5.7e-06
+Current memory usage 132.9MB, wall time: 2.9s
+Delta E = -6.3594e-08, Delta S = 1.7679e-05 (per sweep)
+max trunc_err = 1.1729e-07, max E_trunc = 6.9605e-07
+chi: 32
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 8
+energy=-138.9400429377202215, max S=0.8554148999591689, age=100, norm_err=5.5e-06
+Current memory usage 132.9MB, wall time: 2.9s
+Delta E = -1.0620e-07, Delta S = 2.4223e-06 (per sweep)
+max trunc_err = 1.1537e-07, max E_trunc = 6.8857e-07
+chi: 32
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : Setting chi_max=64
+INFO    : checkpoint after sweep 9
+energy=-138.9400855492676214, max S=0.8554897085519321, age=100, norm_err=1.7e-05
+Current memory usage 158.4MB, wall time: 4.5s
+Delta E = -4.2612e-05, Delta S = 9.0163e-05 (per sweep)
+max trunc_err = 1.4288e-09, max E_trunc = 8.9926e-09
+chi: 64
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 10
+energy=-138.9400855755227440, max S=0.8554963628501777, age=100, norm_err=4.3e-07
+Current memory usage 158.6MB, wall time: 5.5s
+Delta E = -2.6255e-08, Delta S = 1.1218e-05 (per sweep)
+max trunc_err = 1.2792e-09, max E_trunc = 9.3814e-09
+chi: 64
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 11
+energy=-138.9400855752462576, max S=0.8554964671501506, age=100, norm_err=1.3e-07
+Current memory usage 158.7MB, wall time: 5.5s
+Delta E = 2.7649e-10, Delta S = 3.4210e-07 (per sweep)
+max trunc_err = 1.2831e-09, max E_trunc = 9.5096e-09
+chi: 64
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 12
+energy=-138.9400855751888173, max S=0.8554964721172013, age=100, norm_err=1.2e-07
+Current memory usage 158.7MB, wall time: 5.5s
+Delta E = 5.7440e-11, Delta S = 3.5268e-08 (per sweep)
+max trunc_err = 1.2837e-09, max E_trunc = 9.5155e-09
+chi: 64
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : Setting chi_max=128
+INFO    : checkpoint after sweep 13
+energy=-138.9400861404376428, max S=0.8554980347855466, age=100, norm_err=3.2e-07
+Current memory usage 259.7MB, wall time: 17.3s
+Delta E = -5.6525e-07, Delta S = 2.0975e-06 (per sweep)
+max trunc_err = 6.8075e-12, max E_trunc = 4.3258e-11
+chi: 128
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 14
+energy=-138.9400861406539320, max S=0.8554981358163971, age=100, norm_err=7.7e-09
+Current memory usage 259.7MB, wall time: 21.8s
+Delta E = -2.1629e-10, Delta S = 2.3786e-07 (per sweep)
+max trunc_err = 6.0669e-12, max E_trunc = 4.7464e-11
+chi: 128
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 15
+energy=-138.9400861406541594, max S=0.8554981381451047, age=100, norm_err=3.0e-09
+Current memory usage 259.7MB, wall time: 26.8s
+Delta E = -2.2737e-13, Delta S = 6.7148e-09 (per sweep)
+max trunc_err = 6.0400e-12, max E_trunc = 4.7521e-11
+chi: 128
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 16
+energy=-138.9400861406533352, max S=0.8554981383371187, age=100, norm_err=3.0e-09
+Current memory usage 259.7MB, wall time: 21.9s
+Delta E = 8.2423e-13, Delta S = 6.6136e-10 (per sweep)
+max trunc_err = 6.0423e-12, max E_trunc = 4.7493e-11
+chi: 128
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : Setting chi_max=256
+INFO    : checkpoint after sweep 17
+energy=-138.9400861435231604, max S=0.8554981572207933, age=100, norm_err=3.7e-09
+Current memory usage 663.6MB, wall time: 79.6s
+Delta E = -2.8698e-09, Delta S = 2.2990e-08 (per sweep)
+max trunc_err = 1.3160e-14, max E_trunc = 5.9686e-13
+chi: 256
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 18
+energy=-138.9400861435251784, max S=0.8554981587506705, age=100, norm_err=8.6e-11
+Current memory usage 668.1MB, wall time: 124.3s
+Delta E = -2.0179e-12, Delta S = 2.5069e-09 (per sweep)
+max trunc_err = 1.2047e-14, max E_trunc = 4.2633e-13
+chi: 256
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : Setting chi_max=384
+INFO    : checkpoint after sweep 19
+energy=-138.9400861435312891, max S=0.8554981588676199, age=100, norm_err=2.1e-11
+Current memory usage 1390.0MB, wall time: 226.5s
+Delta E = -6.1107e-12, Delta S = 1.3675e-10 (per sweep)
+max trunc_err = 3.6980e-16, max E_trunc = 7.9581e-13
+chi: 384
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 20
+energy=-138.9400861435310333, max S=0.8554981588808379, age=100, norm_err=4.0e-12
+Current memory usage 1390.0MB, wall time: 280.5s
+Delta E = 2.5580e-13, Delta S = 1.5669e-11 (per sweep)
+max trunc_err = 3.4888e-16, max E_trunc = 4.2633e-13
+chi: 384
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 21
+energy=-138.9400861435310617, max S=0.8554981588820814, age=100, norm_err=1.8e-12
+Current memory usage 1390.0MB, wall time: 290.3s
+Delta E = -2.8422e-14, Delta S = 1.0812e-12 (per sweep)
+max trunc_err = 3.4925e-16, max E_trunc = 5.4001e-13
+chi: 384
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 22
+energy=-138.9400861435309480, max S=0.8554981588825770, age=100, norm_err=1.9e-12
+Current memory usage 1390.0MB, wall time: 288.0s
+Delta E = 1.1369e-13, Delta S = 3.6726e-13 (per sweep)
+max trunc_err = 3.4929e-16, max E_trunc = 3.9790e-13
+chi: 384
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : Setting chi_max=512
+INFO    : checkpoint after sweep 23
+energy=-138.9400861435306069, max S=0.8554981588867148, age=100, norm_err=1.8e-10
+Current memory usage 2214.8MB, wall time: 579.6s
+Delta E = 3.4106e-13, Delta S = 3.9628e-12 (per sweep)
+max trunc_err = 2.3584e-17, max E_trunc = 4.8317e-13
+chi: 512
+================================================================================
+INFO    : make measurements
+INFO    : saving results to disk; took 10.6s
+INFO    : Running sweep with optimization
+INFO    : checkpoint after sweep 24
+energy=-138.9400861435310333, max S=0.8554981589004472, age=100, norm_err=4.5e-10
+Current memory usage 2345.6MB, wall time: 721.8s
+Delta E = -4.2633e-13, Delta S = 1.0244e-11 (per sweep)
+max trunc_err = 3.4767e-17, max E_trunc = 7.1054e-13
+chi: 512
+================================================================================
+INFO    : make measurements
+INFO    : Running sweep with optimization
+INFO    : Setting chi_max=768
+INFO    : checkpoint after sweep 25
+energy=-138.9400861435317722, max S=0.8554981589548045, age=100, norm_err=8.3e-09
+Current memory usage 5138.4MB, wall time: 1619.0s
+Delta E = -7.3896e-13, Delta S = 3.8058e-11 (per sweep)
+max trunc_err = 1.8616e-18, max E_trunc = 5.4001e-13
+chi: 768
+================================================================================
+WARNING : TwoSiteDMRGEngine: maximum time limit reached. Shelve simulation.
+INFO    : TwoSiteDMRGEngine finished after 25 sweeps, max chi=768
+INFO    : make measurements
+INFO    : saving results to disk; took 11.2s
+INFO    : finished simulation run
+================================================================================
