@@ -2,7 +2,7 @@
 # requires that `model_custom.py` can be imported.
 
 job_config:
-    class: SlurmJob # JobConfig = run locally; SlurmJob = submit to slurm; SGEJob = submit to SGE
+    class: JobConfig # JobConfig = run locally; SlurmJob = submit to slurm; SGEJob = submit to SGE
     jobname: bench_1D_DMRG
     task:  # specify what your job actually does
         type: PythonFunctionCall
