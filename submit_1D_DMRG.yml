@@ -1,0 +1,117 @@
+#!/usr/bin/env -S cluster_jobs.py submit
+# requires that `model_custom.py` can be imported.
+
+job_config:
+    class: SlurmJob # JobConfig = run locally; SlurmJob = submit to slurm; SGEJob = submit to SGE
+    jobname: bench_1D_DMRG
+    task:  # specify what your job actually does
+        type: PythonFunctionCall
+        module: tenpy
+        function: run_simulation
+        # extra_imports:
+        #     - model_custom
+
+    # script_template: slurm_benchmark_threads.sh  # select from cluster_templates/
+    # script_template: slurm_benchmark_threads.sh  # select from cluster_templates/
+    # script_template: slurm.sh  # select from cluster_templates/
+    # script_template: slurm_no_hyperthread.sh  # select from cluster_templates/
+    # # adjust the following lines to tell the cluster the resource requirements
+    requirements_slurm:
+        time: '0-12:00:00'  # d-hh:mm:ss
+        mem: '30G'
+        partition: 'cpu'
+        # qos: 'short'
+        nodes: 1
+        cpus-per-task: 8
+        mail-type: "FAIL"  # be mindful with this if you submit a lot of jobs...
+        # see also cluster_templates/slurm.sh
+        nodelist: "anderson[01-24]"
+    options:
+        # environment_setup: |
+        #     source "${PROJECT_DIR}/env_pip/bin/activate"
+        environment_setup: |
+            eval "$(micromamba shell hook --shell bash )"
+            micromamba activate "${PROJECT_DIR}/env_conda"
+            # export TENPY_OPTIMIZE=3
+
+    change_parameters:
+        # update the global `output_filename_params with the `recursive_keys` below
+        output_filename_params_key: output_filename_params
+
+        expansion: product  # product or zip
+        recursive_keys:
+            # note that these get added to the filename automatically
+            # - algorithm_params.trunc_params.chi_max
+            - model_params.conserve
+            - model_params.sort_mpo_legs
+
+simulation_class : GroundStateSearch
+
+# directory: results
+output_filename_params:
+    prefix: bench
+    parts:
+        # algorithm_params.trunc_params.chi_max: 'chi_{0:04d}'
+        model_params.conserve: 'cons_{0!s}'
+        model_params.sort_mpo_legs: 'sort_{0!s}'
+    suffix: .h5
+
+# skip_if_output_exists: True
+# overwrite_output: True
+save_every_x_seconds: 1800
+save_psi: False  # don't save full wave function - less disk space, but can't resume/redo measurements!
+
+log_params:
+    to_stdout: WARNING  # always check this output - empty is good
+    to_file: INFO
+
+model_class : SpinChain
+model_params :
+    bc_MPS: finite
+    L: 100
+    S: 1  # spin 1!
+    Jx: 1.
+    Jy: 1.
+    Jz: 1.
+    conserve: ['None'] # ['Sz', 'None']
+    sort_mpo_legs: [False] #[True, False]
+
+
+initial_state_params:
+    method : lat_product_state
+    product_state : [[up], [down]]
+
+algorithm_class: TwoSiteDMRGEngine
+algorithm_params:
+    trunc_params:
+        svd_min: 1.e-14
+        # chi_max: None
+    chi_list:
+        # ramp-up the bond dimension with (sweep: max_chi) pairs
+        0: 10
+        4: 32
+        8: 64
+        12: 128
+        16: 256
+        18: 384
+        22: 512
+        24: 768
+        28: 1024
+        32: 2048
+    min_sweeps: 36
+    max_sweeps: 35
+    lanczos_params:
+          N_max: 3  # fix the number of Lanczos iterations: the number of `matvec` calls
+          N_min: 3
+          N_cache: 20  # keep the states during Lanczos in memory
+          reortho: False
+    mixer: False  # no subspace expansion
+    max_hours: 1. # stop running after at most an hour
+
+measure_at_algorithm_checkpoints: True
+connect_measurements:
+  - - tenpy.simulations.measurement
+    - m_onsite_expectation_value
+    - opname: Sz
+  - - simulation_method
+    - wrap walltime
