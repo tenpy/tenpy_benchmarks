@@ -1,0 +1,9 @@
+[submodule "TeNPy"]
+	path = TeNPy
+	url = https://github.com/tenpy/tenpy.git
+[submodule "itensor"]
+	path = itensor/ITensorBenchmarks.jl
+	url = https://github.com/ITensor/ITensorBenchmarks.jl.git
+[submodule "cluster_jobs"]
+	path = cluster_jobs
+	url = https://github.com/jhauschild/cluster_jobs
