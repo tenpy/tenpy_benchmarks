@@ -1,0 +1,63 @@
+#!/usr/bin/env -S cluster_jobs.py submit
+# requires that `model_custom.py` can be imported.
+
+job_config:
+    class: SlurmSequentialJob # JobConfig = run locally; SlurmJob = submit to slurm; SGEJob = submit to SGE
+    jobname: bench_linalg
+    task:  # specify what your job actually does
+        # type: PythonFunctionCall
+        # module: tenpy
+        # function: run_simulation
+        # extra_imports:
+        #     - model_custom
+        type: CommandCall
+        command: python
+        command_line_args:
+          - "${PROJECT_DIR}/benchmark/benchmark.py"
+          - "--modules" 
+          - modules:
+          - "--mod_q"
+          - mod_q:
+          - "--max_time"
+          - max_time:
+          - "--sectors"
+          - sectors:
+        shell: True
+
+    # script_template: slurm_benchmark_threads.sh  # select from cluster_templates/
+    script_template: slurm_benchmark_threads.sh  # select from cluster_templates/
+    # script_template: slurm.sh  # select from cluster_templates/
+    # script_template: slurm_no_hyperthread.sh  # select from cluster_templates/
+    # # adjust the following lines to tell the cluster the resource requirements
+    requirements_slurm:
+        time: '0-12:00:00'  # d-hh:mm:ss
+        mem: '30G'
+        partition: 'cpu'
+        # qos: 'short'
+        nodes: 1
+        cpus-per-task: 32
+        mail-type: "FAIL"  # be mindful with this if you submit a lot of jobs...
+        # see also cluster_templates/slurm.sh
+        nodelist: "anderson[01-24]"
+    options:
+        # environment_setup: |
+        #     source "${PROJECT_DIR}/env_pip/bin/activate"
+        environment_setup: |
+            eval "$(micromamba shell hook --shell bash )"
+            micromamba activate "${PROJECT_DIR}/env_conda"
+            # export TENPY_OPTIMIZE=3
+
+    change_parameters:
+        expansion: product  # product or zip
+        recursive_keys:
+            # note that these get added to the filename automatically
+            # - algorithm_params.trunc_params.chi_max
+            # - module
+            - legs
+            - mod_q
+
+modules: [tensordot_npc, combine_npc, split_npc, tensordot_numpy]
+max_time: 0.1
+mod_q: [[], [1]]
+sectors: 10
+legs: [1, 2, 3]
