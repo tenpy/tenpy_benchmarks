@@ -13,7 +13,7 @@ job_config:
         type: CommandCall
         command: python
         command_line_args:
-          - "${PROJECT_DIR}/benchmark/benchmark.py"
+          - "${PROJECT_DIR}/benchmark_linag/benchmark.py"
           - "--modules" 
           - modules:
           - "--mod_q"

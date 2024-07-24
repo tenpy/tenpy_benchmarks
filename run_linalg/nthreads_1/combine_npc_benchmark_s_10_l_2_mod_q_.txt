@@ -1,0 +1,25 @@
+# mod_q = []
+# legs = 2
+# sectors = 10
+# max_time = 0.1
+# repeat_bestof = 3
+# python_version = '3.12.4 | packaged by conda-forge | (main, Jun 17 2024, 10:23:07) [GCC 12.3.0]'
+# mod_name = 'combine_npc'
+# 
+# size benchmark_time
+1 6.6510e-04
+2 6.8448e-04
+3 6.4892e-04
+5 4.8571e-04
+7 5.9301e-04
+10 6.4216e-04
+12 6.5786e-04
+15 9.1568e-04
+20 1.3919e-03
+25 2.3263e-03
+30 4.4288e-03
+35 8.8980e-03
+40 1.8743e-02
+45 2.9465e-02
+50 9.1469e-02
+75 4.1737e-01

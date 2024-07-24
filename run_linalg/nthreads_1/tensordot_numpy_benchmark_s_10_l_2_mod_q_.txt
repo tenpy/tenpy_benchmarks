@@ -1,0 +1,22 @@
+# mod_q = []
+# legs = 2
+# sectors = 10
+# max_time = 0.1
+# repeat_bestof = 3
+# python_version = '3.12.4 | packaged by conda-forge | (main, Jun 17 2024, 10:23:07) [GCC 12.3.0]'
+# mod_name = 'tensordot_numpy'
+# 
+# size benchmark_time
+1 1.3866e-05
+2 1.7706e-05
+3 1.6510e-05
+5 2.2911e-05
+7 3.4614e-05
+10 7.2447e-05
+12 1.7799e-04
+15 5.4590e-04
+20 2.1158e-03
+25 7.2043e-03
+30 2.1730e-02
+35 5.3938e-02
+40 1.1122e-01

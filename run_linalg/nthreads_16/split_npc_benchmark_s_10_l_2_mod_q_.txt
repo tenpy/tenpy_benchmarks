@@ -1,0 +1,25 @@
+# mod_q = []
+# legs = 2
+# sectors = 10
+# max_time = 0.1
+# repeat_bestof = 3
+# python_version = '3.12.4 | packaged by conda-forge | (main, Jun 17 2024, 10:23:07) [GCC 12.3.0]'
+# mod_name = 'split_npc'
+# 
+# size benchmark_time
+1 6.3580e-05
+2 6.1456e-05
+3 5.9961e-05
+5 5.9831e-05
+7 6.5411e-05
+10 6.6888e-05
+12 7.6276e-05
+15 1.2894e-04
+20 4.5580e-04
+25 1.1624e-03
+30 2.1155e-03
+35 3.3450e-03
+40 3.8773e-03
+45 6.0275e-03
+50 8.4414e-03
+75 1.5941e-01
