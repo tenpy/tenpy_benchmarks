@@ -36,7 +36,7 @@ function ITensors.checkdone!(o::CustomObserver;kwargs...)
     return false  # else keep going
 end
 
-function run(; maxdim::Int=2028,
+function run(; maxdim::Int=2048,
                nsweeps::Int = 22,
                max_seconds::Float64 = 1000.,
                blas_num_threads::Int = 1,
@@ -75,14 +75,17 @@ function run(; maxdim::Int=2028,
                             512,  512,  
                             768,  768,  
                             1024, 1024, 
-                            1536, 1536, 
+                            #  1536, 1536, # (also skipped this with TeNPy)
                             2048, 2048, ])
     maxdim!(sweeps, maxdims...)
     cutoff!(sweeps, 0.0)
     obs = CustomObserver(nsweeps, max_seconds)
     t = @elapsed begin
     energy, ψ = dmrg(H, psi0, sweeps;
-                     observer=obs, outputlevel=outputlevel)
+                     observer=obs,
+                     outputlevel=outputlevel,
+                     eigsolve_krylovdim=3,
+                    )
     end
     println("total time $t")
     return obs

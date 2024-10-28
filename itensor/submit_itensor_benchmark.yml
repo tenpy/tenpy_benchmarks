@@ -14,6 +14,8 @@ job_config:
           - blas_num_threads: "{0:d}"
           - "--conserve_qns"
           - conserve: "{0:d}"
+          - "--max_seconds"
+          - max_seconds: "{0:d}"
           - "--output_filename"
           - output_filename:
         shell: True
@@ -62,5 +64,6 @@ job_config:
 
 
 julia_file: run_tenpy_comparison.jl
-blas_num_threads: [4, 1]
+blas_num_threads: [1, 4]
 conserve: [True, False]
+max_seconds: 3600
